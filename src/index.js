@@ -18,8 +18,13 @@ const server = new ApolloServer({
     },
 });
 
-const { url } = await server.listen({ port: process.env.PORT || 4000 });
-console.log(` 🚀  Server ready at ${url}`);
+const startServer = async (srv) => {
+    const { url } = await srv.listen({ port: process.env.PORT || 4000 });
+    return url
+}
+startServer(server).then((url) => {
+    console.log(` 🚀  Server ready at ${url}`);
+})
 
 // const port = process.env.PORT || 4000
 // server.listen({ port }).then(() => {
