@@ -95,6 +95,15 @@ const resolvers = {
         modules: ({ id }, _, { dataSources }) => {
             return dataSources.trackAPI.getTrackModules(id);
         },
+        // We'll destructure the first parameter for the length property.
+        // We don't need any of the other resolver parameters
+        durationInSeconds: ({ length }) => length,
+    },
+
+    Module: {
+        // We'll destructure the first parameter for the length property.
+        // We don't need any of the other resolver parameters
+        durationInSeconds: ({ length }) => length,
     },
 };
 
