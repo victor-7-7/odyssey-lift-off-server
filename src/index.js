@@ -8,6 +8,8 @@ const SpaceAPI = require("../datasources/space-api");
 const server = new ApolloServer({
     typeDefs,
     resolvers,
+    // https://www.apollographql.com/blog/graphql/security/why-you-should-disable-graphql-introspection-in-production/
+    introspection: process.env.NODE_ENV !== 'production',
     // This is what enables us to access the dataSources.trackAPI
     // (and its methods) from the context parameter of our resolvers.
     dataSources: () => {
